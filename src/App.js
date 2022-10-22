@@ -5,7 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 
 const App = () => {
     const [products, setProducts] = useState([]);
-    const [cart, setCart] = useState({});
+    const [cart, setCart] = useState([]);
 
   
     const fetchProducts = async () => {
@@ -25,20 +25,26 @@ const App = () => {
 
       setCart(item.cart);
     }
+    
 
     useEffect(() => {
         fetchProducts();
         fetchCart();
     }, []);
 
-    console.log(cart);
+    // console.log(cart);
 
   return (
     <div>
-        <Navbar />
+        <Navbar totalItems={cart?.total_items}/>
         <Products products={products} onAddToCart={addToCart}/>
     </div>
   )
 }
 
 export default App;
+
+
+// cart && cart.line_items && cart.line_items.total_items
+// // OR, if using ES2020 (optional chaining)
+// cart?.line_items?.total_items
