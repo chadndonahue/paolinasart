@@ -5,7 +5,7 @@ import Navbar from './components/Navbar/Navbar';
 
 const App = () => {
     const [products, setProducts] = useState([]);
-    const [cart, setCart] = useState([]);
+    const [cart, setCart] = useState({});
 
   
     const fetchProducts = async () => {
@@ -32,7 +32,7 @@ const App = () => {
         fetchCart();
     }, []);
 
-    // console.log(cart);
+    console.log(cart);
 
   return (
     <div>
