@@ -36,4 +36,6 @@ const Navbar = ({totalItems}) => {
   )
 }
 
+
+
 export default Navbar
