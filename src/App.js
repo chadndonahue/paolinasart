@@ -24,11 +24,9 @@ const App = () => {
     };
 
 
-    const addToCart = async (productId, quantity) => {
-      const item = await commerce.cart.add(productId, quantity).then((response) => console.log(response));
-
-      setCart(item.cart);
-    }
+    const addToCart =  async (productId, quantity) => {
+      setCart(await commerce.cart.add(productId, quantity));
+}
     
 
     useEffect(() => {
