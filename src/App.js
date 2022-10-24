@@ -6,6 +6,11 @@ import { Products, Navbar, Cart } from './components'
 const App = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState({});
+    useEffect(() => {
+      console.log(cart)
+    
+    }, [cart])
+    
 
   
     const fetchProducts = async () => {
@@ -32,12 +37,11 @@ const App = () => {
         fetchCart();
     }, []);
 
-    console.log(cart);
 
   return (
     <div>
-        <Navbar totalItems={cart?.total_items}/>
-        {/* <Products products={products} onAddToCart={addToCart}/> */}
+        <Navbar totalItems={cart.total_items}/>
+        <Products products={products} addToCart={addToCart}/>
         <Cart cart={cart}/>
     </div>
   )
